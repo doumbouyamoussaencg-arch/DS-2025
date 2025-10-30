@@ -2,7 +2,8 @@
 
 [Moussa](![WhatsApp Image 2025-10-25 at 18 34 06_2d8a60b6](https://github.com/user-attachments/assets/70b874a9-1e35-4891-a307-145f2b98f7c2)
 )
-[Moussa](![![téléchargement](https://github.com/user-attachments/assets/453b94e7-93aa-4d5e-8c52-a6a8cc77b748)
+[Moussa](![![téléchargement](![Uploading téléchargement.jpg…]()
+)
 ]()
 )
 # COURS DE SCIENCE DES DONNÉES
