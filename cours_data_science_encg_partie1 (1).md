@@ -5,17 +5,17 @@
 
 
 
-[Moussa](<img width="1389" height="989" alt="image" src="https://github.com/user-attachments/assets/26a519aa-1042-4e2e-af62-48fbcec6b327" />
+
+
+
+
+
+[Analyse statistique](![téléchargement - Copie](https://github.com/user-attachments/assets/8d2fa921-f81d-43d7-906a-c07511cb5921)
 )
 
 
 
 
-[Moussa](https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.wikipedia.org%2Fwiki%2FFichier%3AENCG-S.png&psig=AOvVaw03OVJ9eftheRULlVHIXIXH&ust=1761909011486000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKj069fky5ADFQAAAAAdAAAAABAE)
-))
-)
-]()
-)
 # COURS DE SCIENCE DES DONNÉES
 ## École Nationale de Commerce et de Gestion (ENCG) - 4ème Année
 MOUSSA DOUMBOUYA
