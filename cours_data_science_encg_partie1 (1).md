@@ -2,7 +2,8 @@
 
 [Moussa](![WhatsApp Image 2025-10-25 at 18 34 06_2d8a60b6](https://github.com/user-attachments/assets/70b874a9-1e35-4891-a307-145f2b98f7c2)
 )
-![Analyse statistique](![Analyse statistique](distribution_valeurs.png))
+[Moussa](https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.wikipedia.org%2Fwiki%2FFichier%3AENCG-S.png&psig=AOvVaw03OVJ9eftheRULlVHIXIXH&ust=1761909011486000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKj069fky5ADFQAAAAAdAAAAABAE)
+))
 )
 ]()
 )
