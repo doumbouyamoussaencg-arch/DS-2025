@@ -8,8 +8,6 @@
 
 
 
-
-
 [Analyse statistique](![téléchargement - Copie](https://github.com/user-attachments/assets/8d2fa921-f81d-43d7-906a-c07511cb5921)
 )
 
@@ -553,3 +551,8 @@ print("=" * 80)
 ---
 
 *Suite du cours dans la Partie 2 : Apprentissage Automatique et Applications Avancées*
+
+
+![Analyse statistique](<img width="1389" height="989" alt="image" src="https://github.com/user-attachments/assets/ff465718-f188-43a0-b89b-f556a5707e46" />
+)
+
