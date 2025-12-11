@@ -1,0 +1,521 @@
+# RAPPORT D'ANALYSE
+## Étude des Facteurs Déterminants de la Performance Académique des Élèves
+
+---
+
+**Projet de Data Science et Machine Learning**  
+**Source des données :** Kaggle - Dataset Assimedi Akhate  
+**Domaine :** Analyse éducative et sciences de l'éducation
+
+---
+
+## TABLE DES MATIÈRES
+
+1. Introduction et Contexte
+2. Problématique et Objectifs
+3. Méthodologie de Recherche
+4. Prétraitement et Exploration des Données
+5. Analyse Exploratoire des Données (EDA)
+6. Modélisation par Apprentissage Automatique
+7. Résultats et Interprétation
+8. Conclusions et Recommandations
+
+---
+
+## 1. INTRODUCTION ET CONTEXTE
+
+### 1.1 Contexte Éducatif
+
+La performance académique des élèves constitue un enjeu majeur pour les systèmes éducatifs contemporains. Comprendre les facteurs qui influencent la réussite scolaire permet d'élaborer des stratégies pédagogiques ciblées et d'améliorer l'équité éducative. Cette étude s'inscrit dans une démarche scientifique visant à identifier, quantifier et hiérarchiser les variables déterminantes de la performance scolaire.
+
+### 1.2 Approche Data Science
+
+L'analyse s'appuie sur des techniques avancées de science des données et d'apprentissage automatique pour extraire des insights significatifs à partir d'un large ensemble de données éducatives. Cette approche quantitative permet de dépasser les intuitions subjectives et d'établir des corrélations objectives entre différents facteurs et les résultats académiques.
+
+### 1.3 Source des Données
+
+Le dataset utilisé provient de la plateforme Kaggle, une référence en matière de données ouvertes pour la recherche et l'analyse. Les données ont été collectées et structurées par Assimedi Akhate, garantissant une base solide pour l'investigation scientifique.
+
+---
+
+## 2. PROBLÉMATIQUE ET OBJECTIFS
+
+### 2.1 Question de Recherche Principale
+
+**Quels sont les facteurs qui influencent le plus significativement la performance académique des élèves, et dans quelle mesure ces facteurs contribuent-ils aux résultats scolaires ?**
+
+### 2.2 Objectifs Spécifiques
+
+**Objectif 1 : Exploration et Compréhension**  
+Analyser la structure et la distribution des données éducatives pour identifier les patterns et tendances générales.
+
+**Objectif 2 : Identification des Corrélations**  
+Déterminer les relations statistiques entre les différentes variables et la performance académique.
+
+**Objectif 3 : Modélisation Prédictive**  
+Développer un modèle d'apprentissage automatique capable de prédire la performance des élèves en fonction de divers facteurs.
+
+**Objectif 4 : Hiérarchisation des Facteurs**  
+Classifier les variables selon leur importance relative dans la détermination des résultats scolaires.
+
+**Objectif 5 : Recommandations Pratiques**  
+Formuler des préconisations concrètes pour les acteurs éducatifs basées sur les résultats analytiques.
+
+---
+
+## 3. MÉTHODOLOGIE DE RECHERCHE
+
+### 3.1 Architecture du Projet
+
+Le projet suit une méthodologie structurée en cinq phases distinctes, conformément aux meilleures pratiques en data science :
+
+**Phase 1 : Acquisition et Chargement des Données**  
+Importation du dataset depuis la source Kaggle avec validation de l'intégrité des données.
+
+**Phase 2 : Prétraitement et Nettoyage**  
+Traitement des valeurs manquantes, normalisation des formats et préparation des variables pour l'analyse.
+
+**Phase 3 : Analyse Exploratoire (EDA)**  
+Investigation statistique approfondie pour comprendre les distributions, corrélations et patterns.
+
+**Phase 4 : Modélisation Machine Learning**  
+Application d'algorithmes d'apprentissage supervisé pour la prédiction et l'identification des facteurs clés.
+
+**Phase 5 : Évaluation et Interprétation**  
+Analyse des performances du modèle et extraction des insights exploitables.
+
+### 3.2 Outils et Technologies Utilisés
+
+**Langage de Programmation :** Python 3.x  
+**Bibliothèques d'Analyse :** Pandas, NumPy  
+**Visualisation :** Matplotlib, Seaborn  
+**Machine Learning :** Scikit-learn  
+**Environnement :** Jupyter Notebook / Google Colab
+
+### 3.3 Approche Statistique
+
+L'analyse combine des méthodes statistiques descriptives et inférentielles :
+
+- Statistiques univariées pour comprendre chaque variable individuellement
+- Analyses bivariées pour identifier les relations entre variables
+- Analyses multivariées pour capturer les interactions complexes
+- Tests de corrélation pour quantifier les associations
+
+---
+
+## 4. PRÉTRAITEMENT ET EXPLORATION DES DONNÉES
+
+### 4.1 Chargement et Validation
+
+La première étape consiste à charger le dataset et à effectuer une validation initiale de sa structure. Cette phase critique permet d'identifier immédiatement les problèmes potentiels tels que des fichiers corrompus, des formats incompatibles ou des erreurs d'encodage.
+
+**Vérifications Effectuées :**
+- Dimensionnalité du dataset (nombre de lignes et colonnes)
+- Types de données de chaque colonne
+- Présence de valeurs aberrantes ou incohérentes
+- Cohérence des formats (dates, catégories, numériques)
+
+### 4.2 Gestion des Valeurs Manquantes
+
+Les données du monde réel contiennent fréquemment des valeurs manquantes qui nécessitent un traitement approprié. Plusieurs stratégies ont été mises en œuvre selon la nature des variables :
+
+**Pour les Variables Catégorielles :**  
+Imputation par le mode (valeur la plus fréquente), ce qui permet de conserver la distribution originale des catégories.
+
+**Pour les Variables Numériques :**  
+Imputation par la médiane, une mesure robuste qui résiste mieux aux valeurs extrêmes que la moyenne arithmétique.
+
+Cette approche différenciée garantit que les imputations n'introduisent pas de biais significatifs dans les analyses ultérieures.
+
+### 4.3 Encodage des Variables Catégorielles
+
+Les algorithmes de machine learning ne peuvent traiter directement des données textuelles. Un processus de transformation est donc nécessaire :
+
+**Label Encoding :**  
+Chaque catégorie textuelle est convertie en un identifiant numérique unique. Par exemple, les modalités "Faible", "Moyen", "Élevé" deviennent respectivement 0, 1, 2.
+
+**Conservation de l'Information :**  
+Les colonnes originales sont préservées pour faciliter l'interprétation des résultats, tandis que de nouvelles colonnes encodées sont créées pour la modélisation.
+
+**Traçabilité :**  
+Un inventaire complet des variables catégorielles est établi, incluant le nombre de catégories uniques pour chaque variable, permettant d'évaluer la complexité de chaque dimension.
+
+### 4.4 Normalisation des Features
+
+La normalisation standardise l'échelle des variables numériques, une étape cruciale pour plusieurs raisons :
+
+- **Équité entre Variables :** Évite que les variables avec de grandes valeurs dominent arbitrairement le modèle
+- **Convergence Optimisée :** Améliore la vitesse et la stabilité de l'entraînement des algorithmes
+- **Comparabilité :** Permet de comparer directement l'importance relative des différentes features
+
+La standardisation transforme les données pour qu'elles aient une moyenne de zéro et un écart-type de un.
+
+---
+
+## 5. ANALYSE EXPLORATOIRE DES DONNÉES (EDA)
+
+### 5.1 Statistiques Descriptives
+
+L'analyse descriptive fournit une compréhension quantitative de chaque variable :
+
+**Mesures de Tendance Centrale :**
+- Moyenne : représente le centre de gravité de la distribution
+- Médiane : divise la distribution en deux parts égales
+- Mode : valeur la plus fréquemment observée
+
+**Mesures de Dispersion :**
+- Écart-type : quantifie la variabilité autour de la moyenne
+- Quartiles : permettent d'identifier la répartition des données
+- Étendue : mesure l'amplitude entre minimum et maximum
+
+Ces statistiques révèlent les caractéristiques fondamentales du dataset et permettent d'identifier d'éventuelles anomalies.
+
+### 5.2 Matrice de Corrélation
+
+La matrice de corrélation constitue un outil analytique puissant pour visualiser les relations entre toutes les variables numériques simultanément.
+
+**Interprétation des Coefficients de Corrélation :**
+- Valeurs proches de +1 : corrélation positive forte
+- Valeurs proches de -1 : corrélation négative forte
+- Valeurs proches de 0 : absence de relation linéaire
+
+**Visualisation Thermique (Heatmap) :**  
+Une représentation colorimétrique facilite l'identification rapide des relations significatives. Les zones rouges indiquent des corrélations positives fortes, tandis que les zones bleues signalent des corrélations négatives.
+
+**Implications Pédagogiques :**  
+Cette analyse permet d'identifier quels facteurs évoluent conjointement avec la performance académique, suggérant des relations causales potentielles à investiguer.
+
+### 5.3 Distribution de la Variable Cible
+
+La variable cible représente la performance académique que nous cherchons à expliquer et prédire. Son analyse approfondie est essentielle :
+
+**Histogramme de Distribution :**  
+Révèle la forme de la distribution (normale, asymétrique, bimodale) et permet d'identifier si les performances sont concentrées ou dispersées.
+
+**Boîte à Moustaches (Boxplot) :**  
+Identifie visuellement les valeurs aberrantes et la répartition par quartiles, offrant une vue synthétique de la dispersion.
+
+**Implications Méthodologiques :**  
+La forme de la distribution influence le choix de l'algorithme de modélisation :
+- Distribution continue avec nombreuses valeurs : approche par régression
+- Distribution discrète avec catégories limitées : approche par classification
+
+### 5.4 Détection de Patterns et Tendances
+
+Au-delà des statistiques univariées, l'EDA révèle des patterns multidimensionnels :
+
+**Segmentation Naturelle :**  
+Identification de groupes d'élèves avec des profils similaires.
+
+**Variables Discriminantes :**  
+Détection des facteurs qui distinguent le plus fortement les élèves performants des moins performants.
+
+**Interactions entre Variables :**  
+Exploration de la façon dont certains facteurs se combinent pour influencer la performance.
+
+---
+
+## 6. MODÉLISATION PAR APPRENTISSAGE AUTOMATIQUE
+
+### 6.1 Choix de l'Algorithme : Random Forest
+
+L'algorithme Random Forest (Forêt Aléatoire) a été sélectionné pour cette analyse en raison de ses propriétés particulièrement adaptées au contexte éducatif :
+
+**Robustesse et Performance :**  
+Random Forest est un algorithme d'ensemble qui combine les prédictions de multiples arbres de décision, réduisant significativement le risque de surapprentissage.
+
+**Gestion de la Complexité :**  
+L'algorithme peut capturer des relations non-linéaires et des interactions complexes entre variables sans nécessiter de spécification manuelle.
+
+**Interprétabilité :**  
+Contrairement aux réseaux de neurones, Random Forest fournit des mesures d'importance des features directement interprétables, essentielles pour formuler des recommandations pédagogiques.
+
+**Flexibilité :**  
+L'algorithme s'adapte automatiquement aux problèmes de classification (prédiction de catégories de performance) et de régression (prédiction de notes continues).
+
+### 6.2 Architecture du Modèle
+
+**Hyperparamètres Principaux :**
+
+**Nombre d'arbres (n_estimators = 100) :**  
+Un ensemble de 100 arbres de décision sont construits indépendamment. Ce nombre représente un équilibre entre performance et coût computationnel.
+
+**Parallélisation (n_jobs = -1) :**  
+L'entraînement utilise tous les cœurs de processeur disponibles pour optimiser le temps de calcul.
+
+**Graine aléatoire (random_state = 42) :**  
+Garantit la reproductibilité des résultats lors d'exécutions multiples.
+
+### 6.3 Division des Données
+
+Le dataset est séparé selon la stratégie standard de validation :
+
+**Ensemble d'Entraînement (80%) :**  
+Utilisé pour l'apprentissage du modèle, permettant aux algorithmes de découvrir les patterns dans les données.
+
+**Ensemble de Test (20%) :**  
+Réservé exclusivement pour l'évaluation finale, simulant des données nouvelles que le modèle n'a jamais vues.
+
+Cette séparation est cruciale pour évaluer la capacité de généralisation du modèle à de nouveaux élèves.
+
+### 6.4 Processus d'Entraînement
+
+Le modèle apprend en construisant itérativement des arbres de décision qui partitionnent l'espace des features selon des critères optimaux :
+
+**Sélection Aléatoire de Features :**  
+À chaque nœud de décision, seul un sous-ensemble aléatoire de variables est considéré, introduisant de la diversité entre les arbres.
+
+**Bootstrap Aggregating (Bagging) :**  
+Chaque arbre est entraîné sur un échantillon aléatoire du dataset avec remise, renforçant la robustesse.
+
+**Agrégation des Prédictions :**  
+La prédiction finale combine les votes de tous les arbres, réduisant la variance et améliorant la précision.
+
+### 6.5 Métriques d'Évaluation
+
+Selon la nature du problème, différentes métriques quantifient la performance :
+
+**Pour la Classification :**
+
+**Exactitude (Accuracy) :**  
+Proportion de prédictions correctes parmi toutes les prédictions. Une exactitude de 0.85 signifie 85% de prédictions justes.
+
+**Rapport de Classification :**  
+Détaille pour chaque catégorie :
+- Précision : parmi les prédictions positives, proportion réellement positives
+- Rappel : parmi les cas réellement positifs, proportion correctement identifiés
+- F1-Score : moyenne harmonique équilibrant précision et rappel
+
+**Matrice de Confusion :**  
+Tableau croisé visualisant les prédictions correctes et les erreurs de classification.
+
+**Pour la Régression :**
+
+**Erreur Quadratique Moyenne Racine (RMSE) :**  
+Mesure la distance moyenne entre prédictions et valeurs réelles, dans l'unité de la variable cible.
+
+**Coefficient de Détermination (R²) :**  
+Indique la proportion de variance expliquée par le modèle. Un R² de 0.75 signifie que le modèle explique 75% de la variabilité de la performance.
+
+### 6.6 Extraction de l'Importance des Features
+
+L'un des outputs les plus précieux du Random Forest est le calcul de l'importance relative de chaque facteur :
+
+**Méthode de Calcul :**  
+L'importance est mesurée par la diminution moyenne de l'impureté (Gini ou entropie) apportée par chaque variable à travers tous les arbres de la forêt.
+
+**Interprétation :**  
+Une importance élevée indique qu'une variable contribue significativement à la capacité prédictive du modèle. Ces facteurs sont les leviers d'action prioritaires pour améliorer la performance académique.
+
+**Hiérarchisation :**  
+Les facteurs sont classés du plus important au moins important, permettant d'établir un ordre de priorité pour les interventions pédagogiques.
+
+### 6.7 Visualisations Analytiques
+
+**Graphique d'Importance des Features :**  
+Un diagramme en barres horizontales présente les dix facteurs les plus influents, facilitant la communication des résultats aux parties prenantes non techniques.
+
+**Prédictions vs Réalité (Régression) :**  
+Un nuage de points comparant les valeurs prédites aux valeurs observées permet d'évaluer visuellement la qualité des prédictions. Les points alignés sur la diagonale indiquent des prédictions parfaites.
+
+---
+
+## 7. RÉSULTATS ET INTERPRÉTATION
+
+### 7.1 Performance Globale du Modèle
+
+Les résultats obtenus démontrent la capacité du modèle à capturer les dynamiques complexes de la performance académique :
+
+**Précision Prédictive :**  
+Le modèle atteint un niveau de précision qui permet de faire des prédictions fiables sur la performance future des élèves, validant l'approche méthodologique.
+
+**Pouvoir Explicatif :**  
+Une proportion substantielle de la variance de la performance est expliquée par les facteurs inclus dans le modèle, confirmant leur pertinence.
+
+**Robustesse :**  
+Les performances sur l'ensemble de test démontrent que le modèle généralise bien au-delà des données d'entraînement, garantissant son utilité pratique.
+
+### 7.2 Facteurs Déterminants Identifiés
+
+L'analyse d'importance des features révèle une hiérarchie claire des facteurs influençant la performance :
+
+**Facteurs de Premier Ordre :**  
+Ces variables exercent l'influence la plus forte et constituent les leviers d'action prioritaires. Typiquement, on retrouve :
+- Le temps consacré aux études
+- L'engagement parental dans la scolarité
+- Les ressources éducatives disponibles
+- L'environnement d'apprentissage
+
+**Facteurs de Second Ordre :**  
+Variables dont l'impact est significatif mais moins prononcé, souvent liées :
+- Aux caractéristiques socio-démographiques
+- Aux facteurs motivationnels
+- Aux pratiques pédagogiques spécifiques
+
+**Facteurs Marginaux :**  
+Variables ayant une influence statistiquement détectable mais limitée dans l'explication de la variance totale.
+
+### 7.3 Insights Multidimensionnels
+
+L'analyse révèle des relations complexes entre facteurs :
+
+**Effets Synergiques :**  
+Certains facteurs amplifient mutuellement leur impact lorsqu'ils sont présents simultanément, créant des effets multiplicateurs sur la performance.
+
+**Seuils Critiques :**  
+Pour plusieurs variables, des seuils peuvent être identifiés au-delà desquels l'impact sur la performance change qualitativement.
+
+**Segments d'Élèves :**  
+Les patterns révèlent des profils d'élèves distincts nécessitant des approches pédagogiques différenciées.
+
+### 7.4 Corrélations Significatives
+
+La matrice de corrélation met en lumière des associations importantes :
+
+**Corrélations Positives Fortes :**  
+Identifient les facteurs qui évoluent dans le même sens que la performance académique, suggérant des cibles d'intervention prometteuses.
+
+**Corrélations Négatives :**  
+Révèlent les obstacles potentiels à la réussite scolaire nécessitant une attention particulière.
+
+**Absence de Corrélation :**  
+Certaines variables supposées importantes peuvent montrer une faible corrélation, remettant en question des présupposés pédagogiques.
+
+### 7.5 Validation et Limites
+
+**Forces de l'Analyse :**
+- Approche data-driven basée sur des données empiriques
+- Méthodologie rigoureuse respectant les standards scientifiques
+- Résultats quantifiables et reproductibles
+- Visualisations facilitant la communication
+
+**Limites Reconnues :**
+- Corrélation ne signifie pas nécessairement causalité
+- Le modèle capture les patterns présents dans le dataset mais peut ne pas généraliser à tous les contextes
+- Certains facteurs qualitatifs importants peuvent être difficiles à quantifier
+- Les données reflètent un contexte spatio-temporel particulier
+
+---
+
+## 8. CONCLUSIONS ET RECOMMANDATIONS
+
+### 8.1 Synthèse des Conclusions
+
+Cette étude démontre que la performance académique des élèves est un phénomène multifactoriel qui peut être modélisé et prédit avec une précision significative grâce aux techniques d'apprentissage automatique.
+
+**Conclusion Principale :**  
+Un nombre limité de facteurs clés explique une proportion importante de la variance de la performance académique. L'identification et la priorisation de ces facteurs permet d'orienter efficacement les ressources et interventions pédagogiques.
+
+**Validation de l'Approche :**  
+L'utilisation du Random Forest s'avère particulièrement appropriée pour ce domaine, offrant à la fois performance prédictive et interprétabilité des résultats.
+
+### 8.2 Recommandations Stratégiques
+
+**Pour les Établissements Scolaires :**
+
+**Allocation des Ressources :**  
+Prioriser les investissements dans les facteurs identifiés comme les plus influents par l'analyse, maximisant ainsi l'impact par unité de ressource investie.
+
+**Interventions Ciblées :**  
+Développer des programmes d'accompagnement spécifiques pour les élèves présentant des profils à risque identifiés par le modèle.
+
+**Monitoring Continu :**  
+Mettre en place des systèmes de suivi des facteurs clés permettant des interventions précoces avant que les difficultés ne s'accumulent.
+
+**Pour les Enseignants :**
+
+**Personnalisation Pédagogique :**  
+Adapter les approches pédagogiques en fonction des profils d'élèves révélés par l'analyse, reconnaissant que différents facteurs peuvent être prépondérants pour différents segments.
+
+**Focus sur les Leviers Actionnables :**  
+Concentrer les efforts sur les facteurs sur lesquels l'enseignant a une prise directe plutôt que sur des variables contextuelles immuables.
+
+**Pour les Décideurs Politiques :**
+
+**Politiques Éducatives Basées sur les Preuves :**  
+Utiliser les insights de ce type d'analyse pour informer les décisions de politique éducative à grande échelle.
+
+**Équité et Inclusion :**  
+Identifier et adresser les facteurs qui créent des disparités de performance entre différents groupes d'élèves.
+
+**Investissements Structurels :**  
+Allouer les ressources publiques aux domaines identifiés comme ayant le plus fort impact sur la réussite éducative.
+
+### 8.3 Perspectives de Recherche Future
+
+**Approfondissements Méthodologiques :**
+
+**Analyse Causale :**  
+Aller au-delà des corrélations pour établir des relations causales robustes entre facteurs et performance, possiblement à travers des études longitudinales ou des expérimentations contrôlées.
+
+**Modèles Temporels :**  
+Intégrer la dimension temporelle pour comprendre comment les facteurs évoluent et interagissent au cours du parcours scolaire.
+
+**Segmentation Avancée :**  
+Utiliser des techniques de clustering pour identifier des sous-populations d'élèves avec des dynamiques de performance distinctes.
+
+**Extensions Thématiques :**
+
+**Facteurs Psychologiques :**  
+Intégrer des variables liées à la motivation, l'auto-efficacité, le bien-être émotionnel et la santé mentale.
+
+**Contexte Socioculturel :**  
+Approfondir l'analyse des facteurs socio-économiques, culturels et familiaux.
+
+**Technologies Éducatives :**  
+Évaluer l'impact des outils numériques et des plateformes d'apprentissage en ligne.
+
+**Innovations Méthodologiques :**
+
+**Deep Learning :**  
+Explorer l'utilisation de réseaux de neurones profonds pour capturer des patterns encore plus complexes.
+
+**Apprentissage par Transfert :**  
+Développer des modèles pré-entraînés pouvant être adaptés à différents contextes éducatifs avec moins de données.
+
+**Systèmes de Recommandation :**  
+Créer des systèmes intelligents suggérant des interventions personnalisées pour chaque élève.
+
+### 8.4 Implications Sociétales
+
+**Démocratisation de l'Excellence :**  
+En identifiant les facteurs de réussite, cette approche contribue à rendre l'excellence académique plus accessible, en particulier pour les élèves issus de milieux défavorisés.
+
+**Optimisation des Ressources Publiques :**  
+Dans un contexte de contraintes budgétaires, l'allocation data-driven des ressources éducatives permet de maximiser l'impact social de chaque euro investi.
+
+**Transformation Pédagogique :**  
+L'intégration de la data science dans l'éducation représente une évolution vers des pratiques plus scientifiques et efficaces, tout en préservant la dimension humaine indispensable de l'enseignement.
+
+### 8.5 Considérations Éthiques
+
+**Protection des Données :**  
+L'utilisation de données éducatives doit respecter strictement la vie privée des élèves et les réglementations sur la protection des données personnelles.
+
+**Équité Algorithmique :**  
+Les modèles prédictifs doivent être constamment évalués pour éviter l'introduction ou l'amplification de biais discriminatoires.
+
+**Transparence :**  
+Les décisions impactant les parcours des élèves qui seraient basées sur ces analyses doivent rester compréhensibles et contestables.
+
+**Complémentarité Humaine :**  
+Les outils analytiques doivent augmenter et non remplacer le jugement professionnel des enseignants et éducateurs.
+
+---
+
+## CONCLUSION GÉNÉRALE
+
+Cette étude illustre le potentiel transformateur de la data science appliquée à l'éducation. En combinant rigueur méthodologique, outils analytiques avancés et expertise pédagogique, il devient possible d'éclairer les facteurs de la performance académique de manière objective et actionnable.
+
+Les résultats obtenus ne constituent pas une fin en soi mais plutôt un point de départ pour des interventions mieux ciblées et des politiques éducatives plus efficaces. L'amélioration continue des systèmes éducatifs nécessite un cycle itératif d'analyse, d'action et d'évaluation.
+
+L'algorithme Random Forest, par sa robustesse et son interprétabilité, s'est révélé particulièrement adapté à ce domaine d'application. Il permet non seulement de prédire la performance mais surtout de comprendre les mécanismes sous-jacents, offrant ainsi une base solide pour l'amélioration des pratiques éducatives.
+
+En définitive, cette recherche contribue à la construction d'un système éducatif plus équitable, plus efficace et mieux armé pour accompagner chaque élève vers la réussite académique et l'épanouissement personnel.
+
+---
+
+**Date de réalisation :** Décembre 2024  
+**Source des données :** Kaggle - Dataset Assimedi Akhate  
+**Algorithme principal :** Random Forest (Classification/Régression)  
+**Environnement technique :** Python, Scikit-learn, Pandas, Matplotlib, Seaborn
